@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans', sans-serif)
+}
+
+* {
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  border: none;
+  margin: 0;
+  font-family: 'Open Sans';
+  font-weight: 300;
+}
+
+#container{
+  max-width: 1230px;
+  width: 100%;
+  margin: 0 auto 0;
+}
+
+input{
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button{
+  background: blue;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.card-deck{ 
+  .card{
+    flex: inherit;
+  }
+}
+
+.slick-slider{
+  .slick-prev,
+  .slick-next{
+    background: #000;
+    border-radius: 100%
+  }
+
+  img{
+    border-radius: 5px;
+  }
+  
+  h3{
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .release_date{
+    font-size: 14px;
+  }
+
+  .vote{
+    background: blue;
+    border-radius: 100%;
+    color: #fff;
+    display: inline-block;
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+.card-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .cards{
+    max-width: 220px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .card-body{
+      padding: 0;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 700
+      }
+
+      img{
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+
