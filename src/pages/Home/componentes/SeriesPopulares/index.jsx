@@ -4,6 +4,8 @@ import React from 'react';
 
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
 import Slider from "react-slick";
 
 export default class SeriesPopulares extends React.Component {
@@ -64,10 +66,12 @@ export default class SeriesPopulares extends React.Component {
 
                     <Slider {...settings}>
                         {this.state.items.map(serie => <div style={{ width: '220px' }}>
+                          <Link to={'/serie/' + serie.id}>
                             <img src={'https://image.tmdb.org/t/p/w500/' + serie.poster_path} style={{ width: '220px' }} title={serie.name} alt={serie.poster_path}/>
                             <h3>{serie.name}</h3>
                             <div className="release_date">{serie.release_date}</div>
                             <div className="vote">{serie.vote_average}</div>
+                          </Link>
                         </div>)}
                     </Slider>
                 </div>

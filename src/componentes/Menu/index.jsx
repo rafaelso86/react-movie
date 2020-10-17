@@ -27,10 +27,18 @@ function Menu() {
                 </NavDropdown>
                 
                 <NavDropdown title="Séries" id="collasible-nav-dropdown">
-                  <NavDropdown.Item><Link to="/series">Populares</Link></NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">Em exibição hoje</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Na TV</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Mais bem avaliadas</NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/series/populares">Populares</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/series/em-exibicao">Em exibição hoje</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/series/na-tv">Na TV</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/series/mais-avaliadas">Mais bem avaliadas</Link>
+                  </NavDropdown.Item>
                 </NavDropdown>
             
               <Nav>
