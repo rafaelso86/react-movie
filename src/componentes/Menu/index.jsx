@@ -10,7 +10,7 @@ function Menu() {
       <div id="menu-topo">
         <Navbar collapseOnSelect expand="lg">
           <Navbar.Brand>
-            <Link to='/'>React-Movies</Link>
+            <Link to='/'>React Movie</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -41,14 +41,14 @@ function Menu() {
                   </NavDropdown.Item>
                 </NavDropdown>
             
-              <Nav>
+              {/*<Nav>
                 <Link to='/sobre'>Atores</Link>
-              </Nav>
+              </Nav>*/}
             </Nav>
             <Nav>
-              <Nav>
+              {/*<Nav>
                 <Link to='/sobre'>Sobre</Link>
-              </Nav>
+              </Nav>*/}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
