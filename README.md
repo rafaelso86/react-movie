@@ -1,3 +1,7 @@
+## React Movie
+
+Repositório de estudo e teste usando ReactJS e API da TMDB(https://www.themoviedb.org/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
