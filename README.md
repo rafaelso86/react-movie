@@ -2,6 +2,11 @@
 
 Repositório de estudo e teste usando ReactJS e API da TMDB(https://www.themoviedb.org/)
 
+### Melhorar
+
+- Passar os componentes de listas de Filmes e Séries para um único componente cada;
+- Passar os dados SEO das listas de Filmes e Séries, de forma dinâmica com os dados da API;
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
