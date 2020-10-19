@@ -75,10 +75,10 @@ export default function Routes() {
                     <Sobre />
                 </Route>
 
-                <Route path="/busca" component={ Busca }>
+                <Route path="/busca" exact component={ Busca }>
                     <Busca />
                 </Route>
-                <Route path="/busca/:valor" component={BuscaQuery}>
+                <Route path="/busca/:valor" exact component={BuscaQuery}>
                     <BuscaQuery />
                 </Route>
             </Switch>

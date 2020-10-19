@@ -17,9 +17,22 @@ export default class MenuBusca extends React.Component{
     componentDidMount() {
 
         let urlBusca = window.location.href;
+        console.log(urlBusca);
+
         let splitUrl = urlBusca.split('/');
-        let splitQuery = splitUrl[3].split('=');
+
+        var numQuery = null; 
+
+        if (splitUrl.length === 4) {
+            numQuery = 3;
+        }
+        else {
+            numQuery = 4;
+        }
+
+        let splitQuery = splitUrl[numQuery].split('=');
         let queryUrl = splitQuery[1];
+        console.log(queryUrl);
 
         //Estado para a query de busca
         this.setState({ querySearch: queryUrl });
@@ -45,8 +58,8 @@ export default class MenuBusca extends React.Component{
         return (
             <div className="menu-busca">
                 <ul>
-                    <li><Link to={'/busca/movie?query=' + this.state.querySearch} id="movie">Filmes {this.state.totalMovie.total_results}</Link></li>
-                    <li><Link to={'/busca/tv?query=' + this.state.querySearch} id="tv">Séries {this.state.totalTv.total_results}</Link></li>
+                    <li><a href={'/busca/movie?query=' + this.state.querySearch} id="movie" title="title">Filmes {this.state.totalMovie.total_results}</a></li>
+                    <li><a href={'/busca/tv?query=' + this.state.querySearch} id="tv" title="name">Séries {this.state.totalTv.total_results}</a></li>
                 </ul>
             </div>
         )

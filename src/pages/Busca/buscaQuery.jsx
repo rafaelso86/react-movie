@@ -18,17 +18,17 @@ export default class BuscaQuery extends React.Component{
 
         let urlBusca = window.location.href;
         let splitUrl = urlBusca.split('/');
-        let splitQuery = splitUrl[3].split('=');
+        let splitQuery = splitUrl[4].split('=');
+        let splitCategory = splitQuery[0].split('?');
+        let queryCategory = splitCategory[0];
         let queryUrl = splitQuery[1];
-
-        console.log(queryUrl);
 
         if (queryUrl === 'null') {
             document.querySelector('.mensagem-erro').innerHTML = '<p>Nenhum dado encontrado</p>';
         }
 
         else {
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&query=' + queryUrl)
+            axios.get('https://api.themoviedb.org/3/search/' + queryCategory + '?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&query=' + queryUrl)
                 .then(res => {
                     const items = res.data;
                     const total = res.data;
@@ -65,7 +65,9 @@ export default class BuscaQuery extends React.Component{
                         <div className="mensagem-erro"></div>
                         
                         <ul>
-                            {this.state.items.map(item => <li>{item.title}</li>)}
+                            {this.state.items.map(item => <li>
+                                    {item.title}
+                                </li>)}
                         </ul>
                     </div>
                 </div>
