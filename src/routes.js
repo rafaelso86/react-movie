@@ -24,6 +24,7 @@ import SeriesEmExibicao from './pages/Series/emExibicao';
 import ConteudoSerie from './pages/Series/conteudo';
 
 import Busca from './pages/Busca';
+import BuscaQuery from './pages/Busca/buscaQuery';
 import Sobre from './pages/Sobre';
 
 export default function Routes() {    
@@ -74,8 +75,11 @@ export default function Routes() {
                     <Sobre />
                 </Route>
 
-                <Route path="/busca/:value" component={ Busca }>
+                <Route path="/busca" component={ Busca }>
                     <Busca />
+                </Route>
+                <Route path="/busca/:valor" component={BuscaQuery}>
+                    <BuscaQuery />
                 </Route>
             </Switch>
         </Router>

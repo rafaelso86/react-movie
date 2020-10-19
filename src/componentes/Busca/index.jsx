@@ -19,11 +19,11 @@ class Busca extends React.Component {
         let valorBusca = this.state.value;
 
         if (valorBusca) {
-            window.location.href = '/busca/' + valorBusca;
+            window.location.href = '/busca?query=' + valorBusca;
         }
 
         else {
-            window.location.href = '/busca/null';
+            window.location.href = '/busca/busca?query=null';
         }
 
         console.log('clicou')

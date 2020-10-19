@@ -7,7 +7,7 @@ import Menu from "../../componentes/Menu";
 
 import MenuBusca from './componentes/MenuBusca';
 
-export default class Busca extends React.Component{
+export default class BuscaQuery extends React.Component{
 
     state = {
         items: [],
@@ -58,7 +58,7 @@ export default class Busca extends React.Component{
                 
                 <div id="container">
                     <h1>Busca | React Movie</h1>
-
+                    
                     <MenuBusca/>
 
                     <div className="card">
