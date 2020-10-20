@@ -77,7 +77,7 @@ export default class BuscaTv extends React.Component{
                         <div className="card-group">
                             {this.state.items.map(item => <div className="cards">
                                 <div className="card-body">
-                                    <Link to={'/filme/' + item.id}>
+                                    <Link to={'/serie/' + item.id}>
                                         <img src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} title={item.name} alt={item.poster_path}/>
                                         <h3>{item.name}</h3>
                                         <div className="release_date">{item.release_date}</div>
