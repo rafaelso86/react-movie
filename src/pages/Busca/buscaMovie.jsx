@@ -2,16 +2,18 @@ import React from 'react';
 
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
 import Header from '../../componentes/Header';
 import Menu from "../../componentes/Menu";
 
 import MenuBusca from './componentes/MenuBusca';
 
-export default class BuscaQuery extends React.Component{
+export default class BuscaMovie extends React.Component{
 
     state = {
         items: [],
-        total: []
+        total: [],
     }
 
     componentDidMount() {
@@ -28,24 +30,32 @@ export default class BuscaQuery extends React.Component{
         }
 
         else {
-            axios.get('https://api.themoviedb.org/3/search/' + queryCategory + '?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&query=' + queryUrl)
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&query=' + queryUrl)
                 .then(res => {
-                    const items = res.data;
+                    const items = res.data.results;
                     const total = res.data;
+
+                    console.log(items)
 
                     if (items.total_results === 0) {
                         document.querySelector('.mensagem-erro').innerHTML = '<p>Nenhum dado encontrado</p>';
                     }
                     else {
-                        this.setState({ items: items.results });
+                        this.setState({ items: items });
                         this.setState({ total: total });
+
+                        if (queryCategory === 'movie') {
+                            console.log('Filme')
+                        }
+                        else {
+                            console.log('Série');
+                        }
                     }
                 })
         }
     }
 
-    render() {
-        console.log(this.state.items);
+    render() {;
         return (
             <React.Fragment>
                 <Header
@@ -64,11 +74,18 @@ export default class BuscaQuery extends React.Component{
                     <div className="card">
                         <div className="mensagem-erro"></div>
                         
-                        <ul>
-                            {this.state.items.map(item => <li>
-                                    {item.title}
-                                </li>)}
-                        </ul>
+                        <div className="card-group">
+                            {this.state.items.map(item => <div className="cards">
+                                <div className="card-body">
+                                    <Link to={'/filme/' + item.id}>
+                                        <img src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} title={item.title} alt={item.poster_path}/>
+                                        <h3>{item.title}</h3>
+                                        <div className="release_date">{item.release_date}</div>
+                                        <div className="vote">{item.vote_average}</div>
+                                    </Link>
+                                </div>
+                            </div>)}
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

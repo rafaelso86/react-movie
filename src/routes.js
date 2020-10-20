@@ -24,7 +24,9 @@ import SeriesEmExibicao from './pages/Series/emExibicao';
 import ConteudoSerie from './pages/Series/conteudo';
 
 import Busca from './pages/Busca';
-import BuscaQuery from './pages/Busca/buscaQuery';
+import BuscaMovie from './pages/Busca/buscaMovie';
+import BuscaTv from './pages/Busca/buscaTv';
+
 import Sobre from './pages/Sobre';
 
 export default function Routes() {    
@@ -78,8 +80,11 @@ export default function Routes() {
                 <Route path="/busca" exact component={ Busca }>
                     <Busca />
                 </Route>
-                <Route path="/busca/:valor" exact component={BuscaQuery}>
-                    <BuscaQuery />
+                <Route path="/busca/movie" exact component={BuscaMovie}>
+                    <BuscaMovie />
+                </Route>
+                <Route path="/busca/tv" exact component={BuscaTv}>
+                    <BuscaTv />
                 </Route>
             </Switch>
         </Router>

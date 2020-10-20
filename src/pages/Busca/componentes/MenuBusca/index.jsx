@@ -2,8 +2,6 @@ import React from 'react';
 
 import axios from 'axios';
 
-import { Link } from 'react-router-dom';
-
 export default class MenuBusca extends React.Component{
 
     state = {
@@ -17,7 +15,7 @@ export default class MenuBusca extends React.Component{
     componentDidMount() {
 
         let urlBusca = window.location.href;
-        console.log(urlBusca);
+        //console.log(urlBusca);
 
         let splitUrl = urlBusca.split('/');
 
@@ -32,7 +30,7 @@ export default class MenuBusca extends React.Component{
 
         let splitQuery = splitUrl[numQuery].split('=');
         let queryUrl = splitQuery[1];
-        console.log(queryUrl);
+        //console.log(queryUrl);
 
         //Estado para a query de busca
         this.setState({ querySearch: queryUrl });

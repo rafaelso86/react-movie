@@ -25,8 +25,6 @@ class Busca extends React.Component {
         else {
             window.location.href = '/busca?query=null';
         }
-
-        console.log('clicou')
     }
 
     render() {
