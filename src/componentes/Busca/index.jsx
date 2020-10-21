@@ -34,7 +34,6 @@ class Busca extends React.Component {
                 <div className="mask"></div>
                 <div className="area-busca">
                     <h1 className="titulo-busca">O que você gostaria de assistir agora?</h1>
-                    <p className="descricao-busca">Busque por filmes e séries no acervo.</p>
 
                     <div className="campo-busca">
                         <input type="text" placeholder="Buscar por filmes, séries ou atores" value={this.state.value} onChange={this.handleChange} />
