@@ -11,12 +11,27 @@
   margin: 0;
   font-family: 'Open Sans';
   font-weight: 300;
+  color: #fff;
+}
+
+h1{
+  font-size: 22px;
+}
+h2{
+  font-size: 19px;
+}
+a:hover{
+  text-decoration: none;
+}
+
+body{
+  background: #0e1717;
 }
 
 #container{
   max-width: 1230px;
   width: 100%;
-  margin: 0 auto 0;
+  margin: 100px auto 0;
 }
 
 input{
@@ -94,4 +109,8 @@ button{
   }
 }
 
-
+@media (max-width: 960px) {
+  #container{
+    padding: 20px;
+  }
+}

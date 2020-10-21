@@ -1,0 +1,79 @@
+.busca-home{
+    background-image: url('../../imagens/bg-vingadores.png');
+    background-size: 100%;
+    border-radius: 10px;
+    height: 255px;
+    position: relative;
+
+    .mask{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0.8;
+    }
+
+    .area-busca{
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+
+        .titulo-busca{
+            font-size: 25px;
+            margin-bottom: 25px;
+            width: 300px;
+        }
+        .descricao-busca{
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .campo-busca{
+            width: 100%;
+
+            input{
+                max-width: 1090px;
+                width: 100%;
+                color: #575757;
+            }
+            button{
+                margin-left: 15px;
+                background-color: #b20000;
+                height: 36px;
+                padding: 7px 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 960px){
+    .busca-home{
+        margin-bottom: 50px;
+        .area-busca {
+            text-align: center;
+
+            .titulo-busca{
+                font-size: 22px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                line-height: 35px;
+            }
+
+            .descricao-busca{
+                display: none;
+            }
+
+            .campo-busca{
+                button{
+                    width: 100%;
+                    margin-left: 0px !important;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

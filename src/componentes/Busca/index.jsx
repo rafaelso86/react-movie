@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.scss';
 
 class Busca extends React.Component {
 
@@ -29,12 +30,18 @@ class Busca extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
-                <div>
-                    <input type="text" placeholder="Buscar por filmes, séries ou atores" value={this.state.value} onChange={this.handleChange} />
-                    <button onClick={this.handleClick}>Buscar</button>
+            <div className="busca-home">
+                <div className="mask"></div>
+                <div className="area-busca">
+                    <h1 className="titulo-busca">O que você gostaria de assistir agora?</h1>
+                    <p className="descricao-busca">Busque por filmes e séries no acervo.</p>
+
+                    <div className="campo-busca">
+                        <input type="text" placeholder="Buscar por filmes, séries ou atores" value={this.state.value} onChange={this.handleChange} />
+                        <button onClick={this.handleClick}>Buscar</button>
+                    </div>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }

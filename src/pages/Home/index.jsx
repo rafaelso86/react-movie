@@ -23,7 +23,6 @@ function Home() {
         <Menu />
         
         <div id="container">
-          <h1>React Movie</h1>
           <Busca/>
           <FilmesPopulares/>
           <SeriesPopulares />

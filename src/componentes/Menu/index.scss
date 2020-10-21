@@ -1,7 +1,11 @@
 #menu-topo{
     width: 100%;
     color: #fff;
-    background: blue;
+    background: #090F0F;
+    box-shadow: 2px 0 4px 0 #000;
+    position: fixed;
+    top: 0;
+    z-index: 9;
 
         a{
             color: #fff;
@@ -12,6 +16,7 @@
             max-width: 1230px;
             width: 100%;
             margin: 0 auto;
+            padding: 20px 0;
         }
 
         .dropdown-item{
@@ -25,5 +30,9 @@
 }
 
 @media (max-width: 960px){
-    
+    #menu-topo{
+        .navbar{
+            padding: 20px;
+        }
+    }
 }
