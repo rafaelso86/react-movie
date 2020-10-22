@@ -10,6 +10,8 @@ import Slider from "react-slick";
 
 import dateFormat from 'dateformat';
 
+import { helperDataFormat } from '../../../../helpers/HelperDataFormat';
+
 export default class FilmesPopulares extends React.Component {
 
   state = {
@@ -25,25 +27,12 @@ export default class FilmesPopulares extends React.Component {
       console.log(items)
 
     })      
-
-    var dateFormat = require('dateformat');
-      dateFormat.i18n = {
-        dayNames: [
-            'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
-            'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
-        ],
-        monthNames: [
-            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-            'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-        ],
-        timeNames: [
-            'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
-        ]
-    };
   }
 
   render() {
-      
+        //Função para conversão dos valores de meses
+        helperDataFormat();  
+
          const settings = {
             dots: true,
             infinite: true,

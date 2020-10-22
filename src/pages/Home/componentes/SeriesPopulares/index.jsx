@@ -8,6 +8,10 @@ import { Link } from 'react-router-dom';
 
 import Slider from "react-slick";
 
+import dateFormat from 'dateformat';
+
+import { helperDataFormat } from '../../../../helpers/HelperDataFormat';
+
 export default class SeriesPopulares extends React.Component {
 
     state = {
@@ -24,6 +28,9 @@ export default class SeriesPopulares extends React.Component {
     }
 
     render() {
+      
+        //Função para conversão dos valores de meses
+        helperDataFormat(); 
 
         const settings = {
             dots: true,
@@ -69,7 +76,7 @@ export default class SeriesPopulares extends React.Component {
                           <Link to={'/serie/' + serie.id}>
                             <img src={'https://image.tmdb.org/t/p/w500/' + serie.poster_path} style={{ width: '220px' }} title={serie.name} alt={serie.poster_path}/>
                             <h3>{serie.name}</h3>
-                            <div className="release_date">{serie.release_date}</div>
+                            <div className="release_date">{dateFormat(serie.first_air_date, 'd mmmm, yyyy')}</div>
                             <div className="vote">{serie.vote_average}</div>
                           </Link>
                         </div>)}

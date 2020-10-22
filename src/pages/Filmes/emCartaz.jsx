@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 import Header from '../../componentes/Header';
 import Menu from "../../componentes/Menu";
 
+import dateFormat from 'dateformat';
+
+import { helperDataFormat } from '../../helpers/HelperDataFormat';
+
 export default class FilmesEmCartaz extends React.Component {
 
     state = {
@@ -23,6 +27,9 @@ export default class FilmesEmCartaz extends React.Component {
     }
 
     render() {
+
+        helperDataFormat();
+
         return (
             <React.Fragment>
                 <Header
@@ -42,7 +49,7 @@ export default class FilmesEmCartaz extends React.Component {
                                 <Link to={'/filme/' + filme.id}>
                                     <img src={'https://image.tmdb.org/t/p/w500/' + filme.poster_path} title={filme.title} alt={filme.poster_path}/>
                                     <h3>{filme.title}</h3>
-                                    <div className="release_date">{filme.release_date}</div>
+                                    <div className="release_date">{dateFormat(filme.release_date, 'd mmmm, yyyy')}</div>
                                     <div className="vote">{filme.vote_average}</div>
                                 </Link>
                             </div>

@@ -8,6 +8,8 @@ Repositório de estudo e teste usando ReactJS e API da TMDB(https://www.themovie
 - Passar os dados SEO das listas de Filmes e Séries, de forma dinâmica com os dados da API;
 - Puxar mais dados e linkar os resultados da busca;
 - Fazer ajustes no responsivo;
+- Formato de data para os filmes e as séries;
+- Quando não retornar uma imagem, exibir uma default
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
