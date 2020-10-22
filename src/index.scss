@@ -113,4 +113,13 @@ button{
   #container{
     padding: 20px;
   }
+
+  .slick-slider{
+    .slick-initialized {
+      .slick-slide{
+        max-width: 250px;
+        width: 100%;
+      }
+    }
+  }
 }

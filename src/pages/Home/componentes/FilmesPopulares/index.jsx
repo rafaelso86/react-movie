@@ -8,25 +8,43 @@ import { Link } from 'react-router-dom';
 
 import Slider from "react-slick";
 
+import dateFormat from 'dateformat';
+
 export default class FilmesPopulares extends React.Component {
 
-    state = {
-        items: [],
-        datas: []
-    }
+  state = {
+    items: [], 
+  }
 
-    componentDidMount() {
-        axios.get('https://api.themoviedb.org/3/movie/popular?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR&page=1')
-            .then(res => {
-                const items = res.data.results;
-                this.setState({ items });
-                console.log(items);
-        })
-    }
+  componentDidMount() {
+    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR&page=1')
+    .then(res => {
+      const items = res.data.results;
+      this.setState({ items });
 
-    render() {
+      console.log(items)
 
-        const settings = {
+    })      
+
+    var dateFormat = require('dateformat');
+      dateFormat.i18n = {
+        dayNames: [
+            'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
+            'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        ],
+        monthNames: [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+            'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+        ],
+        timeNames: [
+            'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+        ]
+    };
+  }
+
+  render() {
+      
+         const settings = {
             dots: true,
             infinite: true,
             speed: 700,
@@ -65,15 +83,15 @@ export default class FilmesPopulares extends React.Component {
                 <div className="content">
                     <h2>Os filmes mais populares</h2>
 
-                    <Slider {...settings}>
+                    <Slider className="filmes-populares" {...settings}>
                       {this.state.items.map(filme => <div style={{ width: '220px' }}>
                         <Link to={'/filme/' + filme.id}>
                           <img src={'https://image.tmdb.org/t/p/w500/' + filme.poster_path} style={{ width: '220px' }} title={filme.title} alt={filme.poster_path}/>
                           <h3>{filme.title}</h3>
-                          <div className="release_date">{filme.release_date}</div>
+                          <div className="release_date">{dateFormat(filme.release_date, 'd mmmm, yyyy')}</div>
                           <div className="vote">{filme.vote_average}</div>
                         </Link>
-                        </div>)}
+                      </div>)}
                     </Slider>
                 </div>
             </React.Fragment>
