@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
+
+import FilmesLista from '../../pages/Filmes/index';
 
 import './index.scss';
 
@@ -15,7 +17,9 @@ function Menu() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <NavDropdown title="Filmes" id="collasible-nav-dropdown">
+            <NavDropdown title="Filmes" id="collasible-nav-dropdown">
+                <NavDropdown.Item>
+                  <Link to="/filmes/popular" title="populares">Filmes</Link></NavDropdown.Item>
                 <NavDropdown.Item>
                   <Link to="/filmes/populares" title="populares">Populares</Link></NavDropdown.Item>
                 <NavDropdown.Item>

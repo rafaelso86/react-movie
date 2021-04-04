@@ -8,7 +8,7 @@ import {
 import Home from './pages/Home';
 
 //Filmes
-//import FilmesLista from './pages/Filmes';
+import FilmesLista from './pages/Filmes';
 import FilmesPopulares from './pages/Filmes/populares';
 import FilmesEmCartaz from './pages/Filmes/emCartaz';
 import FilmesEstreias from './pages/Filmes/estreias';
@@ -38,9 +38,10 @@ export default function Routes() {
                     <Home />
                 </Route>
 
-                {/*<Route path="/filmes/:id" component={FilmesLista}>
+                <Route path="/filmes/:id" component={FilmesLista}>
                     <FilmesLista/>
-                </Route>*/}
+                </Route>
+
                 <Route path="/filmes/populares" component={FilmesPopulares }>
                     <FilmesPopulares />
                 </Route>
