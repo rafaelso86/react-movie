@@ -2,6 +2,8 @@
 
 Repositório de estudo e teste usando ReactJS e API da TMDB(https://www.themoviedb.org/)
 
+Exemplo do projeto em desenvolvimento rodando no servidor da Vercel - https://react-movie-9jc6akla5.vercel.app/
+
 ### Melhorar
 
 - Passar os componentes de listas de Filmes e Séries para um único componente cada;
