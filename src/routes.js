@@ -9,10 +9,10 @@ import Home from './pages/Home';
 
 //Filmes
 import FilmesLista from './pages/Filmes';
-import FilmesPopulares from './pages/Filmes/populares';
+/*import FilmesPopulares from './pages/Filmes/populares';
 import FilmesEmCartaz from './pages/Filmes/emCartaz';
 import FilmesEstreias from './pages/Filmes/estreias';
-import FilmesBemAvaliados from './pages/Filmes/bemAvaliados';
+import FilmesBemAvaliados from './pages/Filmes/bemAvaliados';*/
 import ConteudoFilmes from './pages/Filmes/conteudo';
 
 //Séries
@@ -29,20 +29,20 @@ import BuscaTv from './pages/Busca/buscaTv';
 
 import Sobre from './pages/Sobre';
 
-export default function Routes() {    
+export default function Routes() {
 
     return (
         <Router>
             <Switch>
-                <Route path="/" component={ Home } exact>
+                <Route path="/" component={Home} exact>
                     <Home />
                 </Route>
 
                 <Route path="/filmes/:id" component={FilmesLista}>
-                    <FilmesLista/>
+                    <FilmesLista />
                 </Route>
 
-                <Route path="/filmes/populares" component={FilmesPopulares }>
+                {/*<Route path="/filmes/populares" component={FilmesPopulares }>
                     <FilmesPopulares />
                 </Route>
                 <Route path="/filmes/em-cartaz" component={FilmesEmCartaz}>
@@ -53,12 +53,12 @@ export default function Routes() {
                 </Route>
                 <Route path="/filmes/bem-avaliados" component={FilmesBemAvaliados}>
                     <FilmesBemAvaliados />
-                </Route>
+                </Route>*/}
                 <Route path="/filme/:id" component={ConteudoFilmes}>
                     <ConteudoFilmes />
                 </Route>
 
-                <Route path="/series/populares" component={ SeriesPopulares }>
+                <Route path="/series/populares" component={SeriesPopulares}>
                     <SeriesPopulares />
                 </Route>
                 <Route path="/series/mais-avaliadas" component={SeriesBemAvaliadas}>
@@ -74,11 +74,11 @@ export default function Routes() {
                     <ConteudoSerie />
                 </Route>
 
-                <Route path="/sobre" component={ Sobre }>
+                <Route path="/sobre" component={Sobre}>
                     <Sobre />
                 </Route>
 
-                <Route path="/busca" exact component={ Busca }>
+                <Route path="/busca" exact component={Busca}>
                     <Busca />
                 </Route>
                 <Route path="/busca/movie" exact component={BuscaMovie}>
