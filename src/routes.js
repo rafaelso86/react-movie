@@ -9,10 +9,6 @@ import Home from './pages/Home';
 
 //Filmes
 import FilmesLista from './pages/Filmes';
-/*import FilmesPopulares from './pages/Filmes/populares';
-import FilmesEmCartaz from './pages/Filmes/emCartaz';
-import FilmesEstreias from './pages/Filmes/estreias';
-import FilmesBemAvaliados from './pages/Filmes/bemAvaliados';*/
 import ConteudoFilmes from './pages/Filmes/conteudo';
 
 //Séries
@@ -41,23 +37,13 @@ export default function Routes() {
                 <Route path="/filmes/:id" component={FilmesLista}>
                     <FilmesLista />
                 </Route>
-
-                {/*<Route path="/filmes/populares" component={FilmesPopulares }>
-                    <FilmesPopulares />
-                </Route>
-                <Route path="/filmes/em-cartaz" component={FilmesEmCartaz}>
-                    <FilmesEmCartaz />
-                </Route>
-                <Route path="/filmes/proximas-estreias" component={FilmesEstreias}>
-                    <FilmesEstreias />
-                </Route>
-                <Route path="/filmes/bem-avaliados" component={FilmesBemAvaliados}>
-                    <FilmesBemAvaliados />
-                </Route>*/}
                 <Route path="/filme/:id" component={ConteudoFilmes}>
                     <ConteudoFilmes />
                 </Route>
 
+                <Route path="/series/:id" component={SeriesPopulares}>
+                    <SeriesPopulares />
+                </Route>
                 <Route path="/series/populares" component={SeriesPopulares}>
                     <SeriesPopulares />
                 </Route>
