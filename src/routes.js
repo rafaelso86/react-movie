@@ -12,11 +12,7 @@ import FilmesLista from './pages/Filmes';
 import ConteudoFilmes from './pages/Filmes/conteudo';
 
 //Séries
-//import Series from './pages/Series';
-import SeriesPopulares from './pages/Series/populares';
-import SeriesBemAvaliadas from './pages/Series/bemAvaliados';
-import SeriesNaTv from './pages/Series/naTv';
-import SeriesEmExibicao from './pages/Series/emExibicao';
+import SeriesLista from './pages/Series';
 import ConteudoSerie from './pages/Series/conteudo';
 
 import Busca from './pages/Busca';
@@ -41,20 +37,8 @@ export default function Routes() {
                     <ConteudoFilmes />
                 </Route>
 
-                <Route path="/series/:id" component={SeriesPopulares}>
-                    <SeriesPopulares />
-                </Route>
-                <Route path="/series/populares" component={SeriesPopulares}>
-                    <SeriesPopulares />
-                </Route>
-                <Route path="/series/mais-avaliadas" component={SeriesBemAvaliadas}>
-                    <SeriesBemAvaliadas />
-                </Route>
-                <Route path="/series/em-exibicao" component={SeriesEmExibicao}>
-                    <SeriesEmExibicao />
-                </Route>
-                <Route path="/series/na-tv" component={SeriesNaTv}>
-                    <SeriesNaTv />
+                <Route path="/series/:id" component={SeriesLista}>
+                    <SeriesLista />
                 </Route>
                 <Route path="/serie/:id" component={ConteudoSerie}>
                     <ConteudoSerie />

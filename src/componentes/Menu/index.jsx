@@ -36,19 +36,23 @@ function Menu() {
                   to="/filmes/top_rated">Mais bem avaliados</Link>
                 </NavDropdown.Item>
               </NavDropdown>
+            
                 
               <NavDropdown title="Séries" id="collasible-nav-dropdown">
                 <NavDropdown.Item>
-                  <Link to="/series/populares" title="Populares">Populares</Link>
+                  <Link to="/series/popular">Populares</Link>
                 </NavDropdown.Item>
+              
                 <NavDropdown.Item>
-                  <Link to="/series/em-exibicao" title="Em exibição hoje">Em exibição hoje</Link>
+                  <Link to="/series/airing_today">Em exibição hoje</Link>
                 </NavDropdown.Item>
+                
                 <NavDropdown.Item>
-                  <Link to="/series/na-tv" title="Na TV">Na TV</Link>
+                  <Link to="/series/on_the_air">Na TV</Link>
                 </NavDropdown.Item>
+                
                 <NavDropdown.Item>
-                  <Link to="/series/mais-avaliadas" title="Mais bem avaliados">Mais bem avaliadas</Link>
+                  <Link to="/series/top_rated">Mais bem avaliadas</Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

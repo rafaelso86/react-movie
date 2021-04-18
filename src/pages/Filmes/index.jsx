@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { Link } from 'react-router-dom';
+import dateFormat from 'dateformat';
+import { helperDataFormat } from '../../helpers/HelperDataFormat';
 
 import Helmet from 'react-helmet';
 import Menu from "../../componentes/Menu";
-
-import dateFormat from 'dateformat';
-
-import { helperDataFormat } from '../../helpers/HelperDataFormat';
 
 import './index.scss';
 
