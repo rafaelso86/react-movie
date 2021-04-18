@@ -73,7 +73,7 @@ export default class FilmesPopulares extends React.Component {
                     <h2>Os filmes mais populares</h2>
 
                     <Slider className="filmes-populares" {...settings}>
-                      {this.state.items.map(filme => <div style={{ width: '220px' }}>
+                {this.state.items.map(filme => <div style={{ width: '220px' }} key={filme.id}>
                         <Link to={'/filme/' + filme.id}>
                           <img src={'https://image.tmdb.org/t/p/w500/' + filme.poster_path} style={{ width: '220px' }} title={filme.title} alt={filme.poster_path}/>
                           <h3>{filme.title}</h3>

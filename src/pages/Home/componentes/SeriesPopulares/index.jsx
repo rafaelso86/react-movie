@@ -72,7 +72,7 @@ export default class SeriesPopulares extends React.Component {
                     <h2>As séries mais populares</h2>
 
                     <Slider {...settings}>
-                        {this.state.items.map(serie => <div style={{ width: '220px' }}>
+                        {this.state.items.map(serie => <div style={{ width: '220px' }} key={serie.id}>
                           <Link to={'/serie/' + serie.id}>
                             <img src={'https://image.tmdb.org/t/p/w500/' + serie.poster_path} style={{ width: '220px' }} title={serie.name} alt={serie.poster_path}/>
                             <h3>{serie.name}</h3>
