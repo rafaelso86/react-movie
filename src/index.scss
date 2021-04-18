@@ -24,6 +24,10 @@ a:hover{
   text-decoration: none;
 }
 
+.titulo-carrosel{
+  margin-bottom: 20px
+}
+
 body{
   background: #0e1717;
 }
@@ -54,10 +58,18 @@ button{
 }
 
 .slick-slider{
+  img{
+    max-width: 220px;
+    width: 100%;
+    margin: 0 auto;
+  }
   .slick-prev,
   .slick-next{
     background: #000;
     border-radius: 100%
+  }
+  .slick-list{
+    padding: 0 13px;
   }
 
   img{
@@ -81,6 +93,41 @@ button{
     padding: 8px;
     font-size: 14px;
   }
+}
+
+.carrousel-home{
+  margin-bottom: 50px;
+
+  h3{
+    margin: 15px 0 10px 0;
+    max-width: 220px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 31px;
+  }
+
+  .release_date{
+    max-width: 220px;
+    font-size: 12px;
+  }
+
+  .slick-slide{
+    max-width: inherit;
+  }
+}
+
+.slick-dots li button{
+  width: 25px;
+  height: 25px;
+}
+.slick-dots li button:before{
+  font-size: 10px;
+  color: #fff;
+  opacity: 0.5
+}
+.slick-dots li.slick-active button:before{
+  color: #FF0000;
+  font-size: 12px;
 }
 
 .card-group {
@@ -114,7 +161,18 @@ button{
     padding: 20px;
   }
 
+  .carrousel-home h3{
+    margin-top: 20px;
+  }
+  .carrousel-home .release_date {
+    
+  }
+
   .slick-slider{
+    img {
+      max-width: inherit;
+      width: 90%
+    }
     .slick-initialized {
       .slick-slide{
         max-width: 250px;

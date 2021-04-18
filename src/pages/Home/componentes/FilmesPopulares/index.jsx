@@ -1,15 +1,10 @@
 //Filmes mais populares
 
 import React from 'react';
-
 import axios from 'axios';
-
 import { Link } from 'react-router-dom';
-
 import Slider from "react-slick";
-
 import dateFormat from 'dateformat';
-
 import { helperDataFormat } from '../../../../helpers/HelperDataFormat';
 
 export default class FilmesPopulares extends React.Component {
@@ -69,16 +64,15 @@ export default class FilmesPopulares extends React.Component {
         
         return (
             <React.Fragment>
-                <div className="content">
-                    <h2>Os filmes mais populares</h2>
+                <div className="content carrousel-home">
+                    <h2 className="titulo-carrosel">Os filmes mais populares</h2>
 
                     <Slider className="filmes-populares" {...settings}>
-                {this.state.items.map(filme => <div style={{ width: '220px' }} key={filme.id}>
+                      {this.state.items.map(filme => <div style={{ width: '220px' }} key={filme.id}>
                         <Link to={'/filme/' + filme.id}>
-                          <img src={'https://image.tmdb.org/t/p/w500/' + filme.poster_path} style={{ width: '220px' }} title={filme.title} alt={filme.poster_path}/>
+                          <img src={'https://image.tmdb.org/t/p/w500/' + filme.poster_path} title={filme.title} alt={filme.poster_path}/>
                           <h3>{filme.title}</h3>
                           <div className="release_date">{dateFormat(filme.release_date, 'd mmmm, yyyy')}</div>
-                          <div className="vote">{filme.vote_average}</div>
                         </Link>
                       </div>)}
                     </Slider>

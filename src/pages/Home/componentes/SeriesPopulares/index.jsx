@@ -1,15 +1,10 @@
 //Séries mais populares
 
 import React from 'react';
-
 import axios from 'axios';
-
 import { Link } from 'react-router-dom';
-
 import Slider from "react-slick";
-
 import dateFormat from 'dateformat';
-
 import { helperDataFormat } from '../../../../helpers/HelperDataFormat';
 
 export default class SeriesPopulares extends React.Component {
@@ -68,16 +63,15 @@ export default class SeriesPopulares extends React.Component {
         
         return (
             <React.Fragment>
-                <div className="content">
-                    <h2>As séries mais populares</h2>
+                <div className="content carrousel-home">
+                    <h2 className="titulo-carrosel">As séries mais populares</h2>
 
                     <Slider {...settings}>
                         {this.state.items.map(serie => <div style={{ width: '220px' }} key={serie.id}>
                           <Link to={'/serie/' + serie.id}>
-                            <img src={'https://image.tmdb.org/t/p/w500/' + serie.poster_path} style={{ width: '220px' }} title={serie.name} alt={serie.poster_path}/>
+                            <img src={'https://image.tmdb.org/t/p/w500/' + serie.poster_path} title={serie.name} alt={serie.poster_path}/>
                             <h3>{serie.name}</h3>
-                            <div className="release_date">{dateFormat(serie.first_air_date, 'd mmmm, yyyy')}</div>
-                            <div className="vote">{serie.vote_average}</div>
+                            <div className="release_date">{dateFormat(serie.release_date, 'd mmmm, yyyy')}</div>
                           </Link>
                         </div>)}
                     </Slider>

@@ -1,10 +1,11 @@
 .busca-home{
-    background-image: url('../../imagens/bg-vingadores.png');
+    background-image: url('../../imagens/wallpapers-spider-man.jpg');
     background-size: 100%;
     border-radius: 10px;
     height: 255px;
     position: relative;
     margin-bottom: 50px;
+    background-position: 0;
 
     .mask{
         position: absolute;
@@ -12,13 +13,13 @@
         width: 100%;
         height: 100%;
         background-color: #000;
-        opacity: 0.6;
+        opacity: 0.4;
     }
 
     .area-busca{
         border-radius: 10px;
         position: absolute;
-        top: 0;
+        top: 30%;
         left: 0;
         width: 100%;
         padding: 20px;
@@ -39,15 +40,24 @@
             width: 100%;
 
             input{
-                max-width: 1090px;
+                max-width: 960px;
                 width: 100%;
                 color: #575757;
+                padding: 12px;
+                margin: 0 auto;
+                display: block;
+                font-size: 22px;
             }
             button{
                 margin-left: 15px;
-                background-color: #b20000;
-                height: 36px;
+                height: 40px;
                 padding: 7px 15px;
+                background-image: url('../../imagens/1608826-32.png');
+                background-repeat: no-repeat;
+                background-color: transparent;
+                position: absolute;
+                right: 156px;
+                bottom: 25px
             }
             button:hover{
                 opacity: 0.8;
@@ -61,6 +71,7 @@
         margin-bottom: 50px;
         .area-busca {
             text-align: center;
+            top: 60%;
 
             .titulo-busca{
                 font-size: 22px;
@@ -74,10 +85,14 @@
             }
 
             .campo-busca{
+                input{
+                    font-size: 14px;
+                }
                 button{
-                    width: 100%;
+                    height: 32px;
                     margin-left: 0px !important;
                     margin-top: 10px;
+                    right: 32px;
                 }
             }
         }
