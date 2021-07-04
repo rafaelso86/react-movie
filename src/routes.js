@@ -26,42 +26,44 @@ import Footer from './componentes/Footer';
 export default function Routes() {
 
     return (
-        <Router>
-            <Switch>
-                <Route path="/" component={Home} exact>
-                    <Home />
-                </Route>
+        <div>
+            <Router>
+                <Switch>
+                    <Route path="/" component={Home} exact>
+                        <Home />
+                    </Route>
 
-                <Route path="/filmes/:id" component={FilmesLista}>
-                    <FilmesLista />
-                </Route>
-                <Route path="/filme/:id" component={ConteudoFilmes}>
-                    <ConteudoFilmes />
-                </Route>
+                    <Route path="/filmes/:id" component={FilmesLista}>
+                        <FilmesLista />
+                    </Route>
+                    <Route path="/filme/:id" component={ConteudoFilmes}>
+                        <ConteudoFilmes />
+                    </Route>
 
-                <Route path="/series/:id" component={SeriesLista}>
-                    <SeriesLista />
-                </Route>
-                <Route path="/serie/:id" component={ConteudoSerie}>
-                    <ConteudoSerie />
-                </Route>
+                    <Route path="/series/:id" component={SeriesLista}>
+                        <SeriesLista />
+                    </Route>
+                    <Route path="/serie/:id" component={ConteudoSerie}>
+                        <ConteudoSerie />
+                    </Route>
 
-                <Route path="/sobre" component={Sobre}>
-                    <Sobre />
-                </Route>
+                    <Route path="/sobre" component={Sobre}>
+                        <Sobre />
+                    </Route>
 
-                <Route path="/busca" exact component={Busca}>
-                    <Busca />
-                </Route>
-                <Route path="/busca/movie" exact component={BuscaMovie}>
-                    <BuscaMovie />
-                </Route>
-                <Route path="/busca/tv" exact component={BuscaTv}>
-                    <BuscaTv />
-                </Route>
-            </Switch>
+                    <Route path="/busca" exact component={Busca}>
+                        <Busca />
+                    </Route>
+                    <Route path="/busca/movie" exact component={BuscaMovie}>
+                        <BuscaMovie />
+                    </Route>
+                    <Route path="/busca/tv" exact component={BuscaTv}>
+                        <BuscaTv />
+                    </Route>
+                </Switch>
+            </Router>
 
             <Footer />
-        </Router>
+        </div>
     )
 }

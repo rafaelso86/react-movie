@@ -4,14 +4,14 @@ import iconLinkedin from '../../imagens/icon-linkedin.png';
 import iconEmail from '../../imagens/icon-email.png';
 import iconGitHub from '../../imagens/icon-github.png';
 
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
         <footer className="footer">
             <div className="content">
                 <div className="logo-footer">
-                    <Link to="/" >React Movie</Link>
+                    <a href="/" >React Movie</a>
                 </div>
                 <div className="info-footer developer">Desenvolvido por: <span>Rafael S Oliveira</span></div>
                 <div className="info-footer">

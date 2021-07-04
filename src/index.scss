@@ -65,6 +65,10 @@ button {
   }
 }
 
+.card-title {
+  padding: 25px 0;
+}
+
 .slick-slider {
 
   .area-carrosel {
@@ -73,7 +77,6 @@ button {
 
       img {
         width: 100%;
-        /*margin: 0 auto;*/
         min-height: 402px;
         border-radius: 10px;
       }
@@ -142,23 +145,41 @@ button {
   flex-wrap: wrap;
 
   .cards {
-    max-width: 220px;
+    max-width: 268px;
     width: 100%;
     margin-bottom: 20px;
 
     .card-body {
       padding: 0;
 
-      h3 {
-        font-size: 18px;
-        font-weight: 700
-      }
-
       img {
         width: 100%;
         border-radius: 5px;
+        min-height: 402px;
+        border-radius: 10px;
+      }
+
+      .info-list {
+        padding: 20px 10px;
+
+        h3 {
+          font-size: 14px;
+          font-weight: 700;
+          font-family: "Open Sans", sans-serif;
+        }
+
+        .release_date {
+          font-size: 12px;
+          font-family: Roboto;
+          font-family: "Open Sans", sans-serif;
+        }
       }
     }
+  }
+
+  .cards:hover {
+    background: #35363a;
+    border-radius: 10px;
   }
 }
 
