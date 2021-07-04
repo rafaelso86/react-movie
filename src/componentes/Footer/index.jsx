@@ -11,7 +11,7 @@ export default function Footer() {
         <footer className="footer">
             <div className="content">
                 <div className="logo-footer">
-                    <Link to="/">React Movie</Link>
+                    <Link to="/" >React Movie</Link>
                 </div>
                 <div className="info-footer developer">Desenvolvido por: <span>Rafael S Oliveira</span></div>
                 <div className="info-footer">
