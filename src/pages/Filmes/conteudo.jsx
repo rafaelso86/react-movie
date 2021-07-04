@@ -50,6 +50,7 @@ export default function Conteudo(props) {
                         backgroundSize: "cover",
                         backgroundPosition: "left 0 top",
                     }}
+                    className="bg-header"
                 ></div>
 
                 <div className="mask"></div>
