@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-//import dateFormat from 'dateformat';
+import dateFormat from 'dateformat';
 import { helperDataFormat } from '../../helpers/HelperDataFormat';
 
 import Helmet from 'react-helmet';
@@ -86,7 +86,7 @@ function Series() {
 
                                 <div className="info-list">
                                     <h3>{serie.name}</h3>
-                                    <div className="release_date">{serie.release_date}</div>
+                                    <div className="release_date">{dateFormat(serie.first_air_date, 'd mmmm, yyyy')}</div>
                                     <div className="vote">{serie.vote_average}</div>
                                 </div>
                             </Link>
