@@ -9,31 +9,31 @@ import { helperDataFormat } from '../../../../helpers/HelperDataFormat';
 
 export default class SeriesPopulares extends React.Component {
 
-    state = {
-        items: []
-    }
+  state = {
+    items: []
+  }
 
-    componentDidMount() {
-        axios.get('https://api.themoviedb.org/3/tv/popular?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR&page=1')
-            .then(res => {
-                const items = res.data.results;
-                this.setState({ items });
-                console.log(items);
-        })
-    }
+  componentDidMount() {
+    axios.get('https://api.themoviedb.org/3/tv/popular?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR&page=1')
+      .then(res => {
+        const items = res.data.results;
+        this.setState({ items });
+        console.log(items);
+      })
+  }
 
-    render() {
-      
-        //Função para conversão dos valores de meses
-        helperDataFormat(); 
+  render() {
 
-        const settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 5,
-            slidesToScroll: 5,
-             responsive: [
+    //Função para conversão dos valores de meses
+    helperDataFormat();
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
         {
           breakpoint: 1024,
           settings: {
@@ -59,24 +59,29 @@ export default class SeriesPopulares extends React.Component {
           }
         }
       ]
-        };
-        
-        return (
-            <React.Fragment>
-                <div className="content carrousel-home">
-                    <h2 className="titulo-carrosel">As séries mais populares</h2>
+    };
 
-                    <Slider {...settings}>
-                        {this.state.items.map(serie => <div style={{ width: '220px' }} key={serie.id}>
-                          <Link to={'/serie/' + serie.id}>
-                            <img src={'https://image.tmdb.org/t/p/w500/' + serie.poster_path} title={serie.name} alt={serie.poster_path}/>
-                            <h3>{serie.name}</h3>
-                            <div className="release_date">{dateFormat(serie.release_date, 'd mmmm, yyyy')}</div>
-                          </Link>
-                        </div>)}
-                    </Slider>
+    return (
+      <React.Fragment>
+        <div className="content carrousel-home">
+          <h2 className="titulo-carrosel">As séries mais populares</h2>
+
+          <Slider {...settings}>
+            {this.state.items.map(serie => <div className="area-carrosel" key={serie.id}>
+              <Link to={'/serie/' + serie.id}>
+                <div className="poster-carrosel">
+                  <img src={'https://image.tmdb.org/t/p/w500/' + serie.poster_path} title={serie.name} alt={serie.poster_path} />
                 </div>
-            </React.Fragment>
-        )
-    }
+
+                <div class="info-carrosel">
+                  <h3>{serie.name}</h3>
+                  <div className="release_date">{dateFormat(serie.release_date, 'd mmmm, yyyy')}</div>
+                </div>
+              </Link>
+            </div>)}
+          </Slider>
+        </div>
+      </React.Fragment>
+    )
+  }
 }

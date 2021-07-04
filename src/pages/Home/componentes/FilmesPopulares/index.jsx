@@ -10,31 +10,31 @@ import { helperDataFormat } from '../../../../helpers/HelperDataFormat';
 export default class FilmesPopulares extends React.Component {
 
   state = {
-    items: [], 
+    items: [],
   }
 
   componentDidMount() {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR&page=1')
-    .then(res => {
-      const items = res.data.results;
-      this.setState({ items });
+      .then(res => {
+        const items = res.data.results;
+        this.setState({ items });
 
-      console.log(items)
+        console.log(items)
 
-    })      
+      })
   }
 
   render() {
-        //Função para conversão dos valores de meses
-        helperDataFormat();  
+    //Função para conversão dos valores de meses
+    helperDataFormat();
 
-         const settings = {
-            dots: true,
-            infinite: true,
-            speed: 700,
-            slidesToShow: 5,
-            slidesToScroll: 5,
-             responsive: [
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
         {
           breakpoint: 1024,
           settings: {
@@ -45,39 +45,46 @@ export default class FilmesPopulares extends React.Component {
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 960,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            initialSlide: 2
+            initialSlide: 2,
+            dots: false,
           }
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            dots: false
           }
         }
       ]
-        };
-        
-        return (
-            <React.Fragment>
-                <div className="content carrousel-home">
-                    <h2 className="titulo-carrosel">Os filmes mais populares</h2>
+    };
 
-                    <Slider className="filmes-populares" {...settings}>
-                      {this.state.items.map(filme => <div style={{ width: '220px' }} key={filme.id}>
-                        <Link to={'/filme/' + filme.id}>
-                          <img src={'https://image.tmdb.org/t/p/w500/' + filme.poster_path} title={filme.title} alt={filme.poster_path}/>
-                          <h3>{filme.title}</h3>
-                          <div className="release_date">{dateFormat(filme.release_date, 'd mmmm, yyyy')}</div>
-                        </Link>
-                      </div>)}
-                    </Slider>
+    return (
+      <React.Fragment>
+        <div className="content carrousel-home">
+          <h2 className="titulo-carrosel">Os filmes mais populares</h2>
+
+          <Slider className="filmes-populares" {...settings}>
+            {this.state.items.map(filme => <div className="area-carrosel" key={filme.id}>
+              <Link to={'/filme/' + filme.id}>
+                <div className="poster-carrosel">
+                  <img src={'https://image.tmdb.org/t/p/w500/' + filme.poster_path} title={filme.title} alt={filme.poster_path} />
                 </div>
-            </React.Fragment>
-        )
-    }
+
+                <div class="info-carrosel">
+                  <h3>{filme.title}</h3>
+                  <div className="release_date">{dateFormat(filme.release_date, 'd mmmm, yyyy')}</div>
+                </div>
+              </Link>
+            </div>)}
+          </Slider>
+        </div>
+      </React.Fragment>
+    )
+  }
 }

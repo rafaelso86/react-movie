@@ -12,23 +12,23 @@ import SeriesPopulares from './componentes/SeriesPopulares';
 
 function Home() {
 
-    return (
-      <React.Fragment>
-        <Header
-          title="React Movies"
-          description="Página inicial React Movies"
-          canonical="/"
-        />
-            
-        <Menu />
-        
-        <div id="container">
-          <Busca/>
-          <FilmesPopulares/>
-          <SeriesPopulares />
-        </div>
-      </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <Header
+        title="React Movies"
+        description="Página inicial React Movies"
+        canonical="/"
+      />
+
+      <Menu />
+
+      <div id="container">
+        <Busca />
+        <FilmesPopulares />
+        <SeriesPopulares />
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default Home;

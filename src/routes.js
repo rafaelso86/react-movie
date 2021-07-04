@@ -21,6 +21,8 @@ import BuscaTv from './pages/Busca/buscaTv';
 
 import Sobre from './pages/Sobre';
 
+import Footer from './componentes/Footer';
+
 export default function Routes() {
 
     return (
@@ -58,6 +60,8 @@ export default function Routes() {
                     <BuscaTv />
                 </Route>
             </Switch>
+
+            <Footer />
         </Router>
     )
 }
