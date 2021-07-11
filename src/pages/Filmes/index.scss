@@ -30,6 +30,7 @@
 
                 img {
                     width: 100%;
+                    border-radius: 10px;
                 }
             }
 
@@ -66,6 +67,48 @@
                         line-height: 28px;
                     }
                 }
+            }
+        }
+    }
+}
+
+#container{
+    margin-bottom: 100px;
+
+    .cast-list{
+        margin-bottom: 75px;
+
+        .slick-initialized{ 
+            .slick-slide{
+                .row-cast{
+                    margin: 0 auto;
+                    width: 100%;
+                    list-style: none;
+                    padding: 0 10px;
+
+                    img{
+                        width: 100%;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .ttrailer-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .youtube-player{
+            margin-right: 30px;
+            max-width: 380px;
+            width: 100%;
+            height: auto;
+
+            iframe{
+                width: 100%;
+                height: 260px;
+                border-radius: 10px;
             }
         }
     }

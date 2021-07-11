@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import { useParams } from 'react-router-dom';
 
+import Slider from "react-slick";
+
 import './index.scss';
 import axios from 'axios';
 
 import Header from '../../componentes/Header';
 import Menu from "../../componentes/Menu";
-import { div } from 'prelude-ls';
+
+import nullImage from '../../imagens/sem-imagem.png';
 
 export default function Conteudo(props) {
 
@@ -15,21 +18,76 @@ export default function Conteudo(props) {
     console.log(id);
 
     const [items, setItems] = useState([]);
-    const [genres, setGenres] = useState([]);
+    const [atores, setAtores] = useState([]);
+    const [videos, setVieos] = useState([]);
 
     useEffect(() => {
         const retornaFilme = async () => {
             await axios.get('https://api.themoviedb.org/3/movie/' + id + '?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR')
                 .then(res => {
                     const items = res.data;
-                    //this.setState({ items });
                     setItems(items);
                     console.log(items);
                 })
         }
 
+        const retornaAtores = async () => {
+            await axios.get('https://api.themoviedb.org/3/movie/' + id + '/credits?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR')
+                .then(res => {
+                    const cast = res.data.cast;
+                    setAtores(cast);
+                    console.log(cast);
+                })
+        }
+
+        const retornaVideos = async () => {
+            await axios.get('https://api.themoviedb.org/3/movie/' + id + '/videos?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR')
+                .then(res => {
+                    const video = res.data.results;
+                    setVieos(video);
+                    console.log(video);
+                })
+        }
+
         retornaFilme();
+        retornaAtores();
+        retornaVideos();
     }, [id])
+
+    var settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
 
     return (
         <React.Fragment>
@@ -58,7 +116,7 @@ export default function Conteudo(props) {
                 <div className="info-topo">
                     <div className="content">
                         <div className="poster-filme">
-                            <img src={'https://image.tmdb.org/t/p/original/' + items.poster_path} alt={items.poster_path} />
+                            <img src={'https://image.tmdb.org/t/p/original/' + items.poster_path} alt={items.poster_path} title={items.title} />
                         </div>
 
                         <div className="info">
@@ -85,10 +143,36 @@ export default function Conteudo(props) {
             </div>
 
             <div id="container">
-                {/*<h1>{items.title}</h1>
-                <p>{items.overview}</p>*/}
 
+                <div className="info-movie">
+                </div>
 
+                <div classNamen="cast">
+                    <h2>Elenco principal</h2>
+                    <div className="cast-list">
+                        <Slider {...settings}>
+                            {atores.map(ator => <div className="row-cast" key={ator.id}>
+                                <img
+                                    src={ator.profile_path === null ? ator.profile_path = nullImage : 'https://image.tmdb.org/t/p/original/' + ator.profile_path}
+                                    alt={ator.profile_path}
+                                    className="photo" title={ator.name} />
+                                <div className="name">{ator.name}</div>
+                                <div className="character">{ator.character}</div>
+                            </div>)}
+                        </Slider>
+                    </div>
+                </div>
+
+                <div className="trailer">
+                    <h2>Assista aos trailers</h2>
+                    <div className="ttrailer-list">
+                        {videos.map(trailer =>
+                            <div className="youtube-player">
+                                <iframe src={'https://www.youtube.com/embed/' + trailer.key} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </React.Fragment >
     )
