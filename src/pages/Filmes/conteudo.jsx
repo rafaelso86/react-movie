@@ -20,6 +20,8 @@ export default function Conteudo(props) {
     const [items, setItems] = useState([]);
     const [atores, setAtores] = useState([]);
     const [videos, setVieos] = useState([]);
+    const [genero, setGenero] = useState([]);
+    const [diretor, setDiretor] = useState([]);
 
     useEffect(() => {
         const retornaFilme = async () => {
@@ -28,40 +30,42 @@ export default function Conteudo(props) {
                     const items = res.data;
                     setItems(items);
                     console.log(items);
+
+                    //console.log(items.genres);
+                    setGenero(items.genres);
                 })
         }
-
         retornaFilme();
 
-    }, [id]);
-
-    useEffect(() => {
         const retornaAtores = async () => {
             await axios.get('https://api.themoviedb.org/3/movie/' + id + '/credits?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR')
                 .then(res => {
                     const cast = res.data.cast;
                     setAtores(cast);
-                    console.log(cast);
+                    //console.log(cast);
+
+                    const crew = res.data.crew;
+                    console.log(crew);
+
+                    let jobs = crew.filter((director) => {
+                        return director.job === "Director";
+                    })
+                    setDiretor(jobs[0].name);
                 })
         }
-
         retornaAtores();
-    }, [id]);
 
-    useEffect(() => {
         const retornaVideos = async () => {
             await axios.get('https://api.themoviedb.org/3/movie/' + id + '/videos?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR')
                 .then(res => {
                     const video = res.data.results;
                     setVieos(video);
-                    console.log(video);
+                    //console.log(video);
                 })
         }
-
         retornaVideos();
 
     }, [id]);
-
 
     var settings = {
         dots: true,
@@ -111,7 +115,7 @@ export default function Conteudo(props) {
             <div className="top-page">
                 <div
                     style={{
-                        backgroundImage: `url(${'https://image.tmdb.org/t/p/original/' + items.backdrop_path})`,
+                        backgroundImage: `url(${'https://image.tmdb.org/t/p/original' + items.backdrop_path})`,
                         backgroundRepeat: 'no-repeat',
                         minHeight: "520px",
                         backgroundSize: "cover",
@@ -125,26 +129,27 @@ export default function Conteudo(props) {
                 <div className="info-topo">
                     <div className="content">
                         <div className="poster-filme">
-                            <img src={'https://image.tmdb.org/t/p/original/' + items.poster_path} alt={items.poster_path} title={items.title} />
+                            <img src={'https://image.tmdb.org/t/p/original' + items.poster_path} alt={items.poster_path} title={items.title} />
                         </div>
 
                         <div className="info">
                             <h1>{items.title}</h1>
 
                             <div className="row">
-                                <div className="info-r release-data">{items.release_date}</div>
-                                <div className="info-r">-</div>
-                                <div className="info-r category">Gênero</div>
-                                <div className="info-r">-</div>
-                                <div className="info-r movie-hour">Duração</div>
+                                <div className="info-r category">
+                                    {genero.map(generos => <div className="tags-genres">{generos.name}</div>)}
+                                </div>
+
                             </div>
 
                             <div className="vote-average">
-                                <p>Nota: {items.vote_average}</p>
+                                <p>Duração: <strong>{items.runtime} min</strong></p>
+                                <p>Nota: <strong>{items.vote_average}</strong></p>
                             </div>
 
                             <div className="description">
                                 <h2>{items.overview}</h2>
+                                <p>Diretor: <strong>{diretor}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -156,28 +161,33 @@ export default function Conteudo(props) {
                 <div className="info-movie">
                 </div>
 
-                <div classNamen="cast">
+                <div className="cast">
                     <h2>Elenco principal</h2>
                     <div className="cast-list">
                         <Slider {...settings}>
                             {atores.map(ator => <div className="row-cast" key={ator.id}>
-                                <img
-                                    src={ator.profile_path === null ? ator.profile_path = nullImage : 'https://image.tmdb.org/t/p/original/' + ator.profile_path}
-                                    alt={ator.profile_path}
-                                    className="photo" title={ator.name} />
-                                <div className="name">{ator.name}</div>
-                                <div className="character">{ator.character}</div>
+                                <div className="content">
+                                    <img
+                                        src={ator.profile_path === null ? ator.profile_path = nullImage : 'https://image.tmdb.org/t/p/original' + ator.profile_path}
+                                        alt={ator.profile_path}
+                                        className="photo" title={ator.name} />
+
+                                    <div className="info-cast">
+                                        <div className="name">{ator.name}</div>
+                                        <div className="character">{ator.character}</div>
+                                    </div>
+                                </div>
                             </div>)}
                         </Slider>
                     </div>
                 </div>
 
                 <div className="trailer">
-                    <h2>Assista aos trailers</h2>
+                    <h2>Trailer</h2>
                     <div className="ttrailer-list">
                         {videos.map(trailer =>
-                            <div className="youtube-player">
-                                <iframe src={'https://www.youtube.com/embed/' + trailer.key} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div key={trailer.id} className="youtube-player">
+                                <iframe src={'https://www.youtube.com/embed/' + trailer.key} title={trailer.name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         )}
                     </div>
