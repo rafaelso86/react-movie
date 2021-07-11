@@ -31,6 +31,11 @@ export default function Conteudo(props) {
                 })
         }
 
+        retornaFilme();
+
+    }, [id]);
+
+    useEffect(() => {
         const retornaAtores = async () => {
             await axios.get('https://api.themoviedb.org/3/movie/' + id + '/credits?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR')
                 .then(res => {
@@ -40,6 +45,10 @@ export default function Conteudo(props) {
                 })
         }
 
+        retornaAtores();
+    }, [id]);
+
+    useEffect(() => {
         const retornaVideos = async () => {
             await axios.get('https://api.themoviedb.org/3/movie/' + id + '/videos?api_key=c5ff834a7a048ff4e4c1e1610a68fb47&language=pt-BR')
                 .then(res => {
@@ -49,10 +58,10 @@ export default function Conteudo(props) {
                 })
         }
 
-        retornaFilme();
-        retornaAtores();
         retornaVideos();
-    }, [id])
+
+    }, [id]);
+
 
     var settings = {
         dots: true,
